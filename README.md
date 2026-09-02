@@ -1,55 +1,75 @@
-# [Tailwind Toolbox](https://www.tailwindtoolbox.com/) - [Landing Page Template](https://www.tailwindtoolbox.com/templates/landing-page)
+# Landing Page — Dockerized with Nginx + CI/CD
 
-[Landing Page](https://www.tailwindtoolbox.com/templates/landing-page) is an open source, generic landing page template for [Tailwind CSS](https://tailwindcss.com/) created by [Tailwind Toolbox](https://www.tailwindtoolbox.com/).
+A simple static landing page, containerized with **Docker** and served using **Nginx**, with an automated **CI pipeline** using **GitHub Actions**.
 
-![Landing Page](https://www.tailwindtoolbox.com/templates/landing-page.png)
+This project is part of a learning path to practice **Docker, Nginx, and CI/CD** together — starting from a basic static site and building up to more advanced deployment pipelines.
 
+---
 
-## Getting Started
+## 🚀 Tech Stack
 
-Choose one of the following options to get started:
-* [Download the latest release](https://github.com/tailwindtoolbox/Landing-Page/archive/master.zip)
-* Clone the repo: `git clone https://github.com/tailwindtoolbox/Landing-Page.git`
-* Fork the repo
+- **HTML/CSS** — Static landing page
+- **Nginx** — Web server to serve the static site
+- **Docker** — Containerization
+- **GitHub Actions** — CI pipeline (automated build on every push)
 
-## Using the Template
+---
 
-The template is just a HTML file using a full CDN hosted Tailwind CSS file.
+## 📂 Project Structure
 
-To get the best out of Tailwind CSS, you need to really start customising it.
-Take a look at our [setup guide](https://www.tailwindtoolbox.com/setup) to start tweaking!
-
-## Sites created using this template
-
-* [AnonAddy.com](https://anonaddy.com)
-* [MentorCV.com](https://mentorcv.com)
-* [Nodewood.com](https://nodewood.com)
-* [X-Wing AI](https://xwing.app)
-* [Auto-Swiper](https://www.auto-swiper.ch)
-* [Hosted Git](https://hosted-git.com)
-* [Qiusheji](https://qiusheji.com)
-
-## Bugs and Issues
-
-Have a bug or an issue with this template? [Open a new issue](https://github.com/tailwindtoolbox/Landing-Page/issues/new) here on GitHub.
-
-## Creator
-
-[Tailwind Toolbox](https://www.tailwindtoolbox.com/) was created by and is maintained by **[Amrit Nagi](https://amritnagi.info/)**, Co-owner of [Astrava.Solutions](https://astrava.solutions).
-
-* https://twitter.com/tailwindtoolbox
-* https://twitter.com/amritnagi
-* https://github.com/tailwindtoolbox
-
-Tailwind Toolbox is based on the [Tailwind CSS](https://www.tailwindcss.com/) framework created by [Adam Wathan](https://twitter.com/adamwathan), [Jonathan Reinink](https://twitter.com/reinink), [David Hemphill](https://twitter.com/davidhemphill) and [Steve Schoger](https://twitter.com/steveschoger)
+Landing-Page/
+├── index.html # Landing page
+├── Dockerfile # Docker build instructions
+├── .github/
+│ └── workflows/
+│ └── docker-build.yml # CI workflow
+└── README.md
 
 
-## Image Attribution
+---
 
-[Hero vector created by freepik.com](https://www.freepik.com/free-vector/isometric-education-illustration_3940819.htm#page=1&query=isometric%20plane&position=1)
+## 🐳 Running Locally with Docker
 
-Free for personal and commercial purpose with attribution
+Build the Docker image:
+```bash
+docker build -t landing-page .
+```
 
-## Copyright and License
+Run the container:
+```bash
+docker run -d -p 8080:80 landing-page
+```
 
-Copyright 2018-2022 Astrava.Solutions Ltd. Code released under the MIT license.
+Open in browser:
+http://localhost:3000
+
+
+---
+
+## ⚙️ CI/CD Pipeline
+
+This repo uses **GitHub Actions** to automatically build the Docker image on every push to the `main` branch.
+
+Workflow file: `.github/workflows/docker-build.yml`
+
+Pipeline steps:
+1. Checkout the repository code
+2. Build the Docker image
+
+You can view the pipeline runs under the **Actions** tab of this repository.
+
+---
+
+## 📌 Learning Goals
+
+This project is built as part of hands-on practice covering:
+- Writing a Dockerfile and containerizing a static site
+- Serving content through Nginx
+- Setting up a basic CI workflow with GitHub Actions
+- (Planned next steps) Pushing images to Docker Hub, adding a reverse proxy, load balancing, and SSL
+
+---
+
+## 📄 License
+
+This project is for personal learning purposes.
